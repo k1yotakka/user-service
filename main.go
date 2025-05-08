@@ -24,7 +24,7 @@ func main() {
 		user.PUT("/profile", handlers.UpdateProfile)
 	}
 
-	r.GET("/api/users/:id", middleware.AuthMiddleware(), handlers.GetUserByID)
+	r.GET("/api/users/:id", handlers.GetUserByID)
 
 	admin := r.Group("/api/users", middleware.AuthMiddleware(), middleware.RequireRole("admin"))
 	{
